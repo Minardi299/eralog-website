@@ -11,9 +11,9 @@ function App() {
     <ScrollProgress />
 
       <Hero />
-      <a href="https://vite.dev" target="_blank">
+      {/* <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
+        </a> */}
        
             <Button>Click me</Button>
       <p className="read-the-docs">
@@ -49,7 +49,7 @@ function App() {
       </p><p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      
+
             <ModeToggle />
 
     </>
