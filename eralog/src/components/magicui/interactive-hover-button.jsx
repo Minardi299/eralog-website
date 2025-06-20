@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export const InteractiveHoverButton = React.forwardRef(({ children, className, ...props }, ref) => {
+export const InteractiveHoverButton = React.forwardRef(({ children, logo, className, ...props }, ref) => {
   return (
     <button
       ref={ref}
@@ -12,10 +12,11 @@ export const InteractiveHoverButton = React.forwardRef(({ children, className, .
       )}
       {...props}>
       <div className="flex items-center gap-2">
-        <div
-          className="h-2 w-2 rounded-full bg-primary transition-all duration-300 group-hover:scale-[100.8]"></div>
+        <span className="transition-transform duration-500 ease-out group-hover:scale-100000">
+            {logo}
+        </span>
         <span
-          className="inline-block transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+          className="inline-block group-hover:translate-x-12 group-hover:opacity-0">
           {children}
         </span>
       </div>
