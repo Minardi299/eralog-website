@@ -1,6 +1,5 @@
 
 import { ArrowRight, BarChart, DollarSign, Package, TrendingUp, Wallet } from 'lucide-react';
-
 // --- UTILITY FUNCTION (from shadcn/ui) ---
 // This is a helper function to merge Tailwind CSS classes conditionally.
 // You would typically import this from `lib/utils` in a shadcn project.
@@ -11,7 +10,6 @@ function cn(...inputs) {
   return twMerge(clsx(inputs))
 }
 
-// --- CORE BENTO GRID COMPONENTS ---
 
 /**
  * BentoGrid is the main container that lays out the grid.
@@ -38,7 +36,6 @@ const BentoGrid = ({ className, children }) => {
 
 /**
  * BentoGridItem represents a single cell within the grid.
- * It's designed to be flexible and composable.
  */
 const BentoGridItem = ({
   className,
@@ -46,44 +43,43 @@ const BentoGridItem = ({
   description,
   header,
   icon,
+  href,
 }) => {
   return (
     <div
       className={cn(
-        // Base styling for each grid item:
-        // - `row-span-1` is the default span
-        // - `rounded-xl` for curved corners
-        // - `group/bento` for hover effects
-        // - `transition` for smooth animations
-        // - `shadow-input` is a custom shadow class you might define
-        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-none p-4 bg-card text-card-foreground  justify-between flex flex-col space-y-4",
-        className // Allows for overriding styles, like background colors or spanning multiple rows/cols
+        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-none p-4 bg-card text-card-foreground justify-between flex flex-col space-y-4 relative",
+        className
       )}
     >
-      {/* The header is typically an image or a visual element */}
-      {header}
-      
-      {/* The main content of the grid item */}
-      <div className="group-hover/bento:translate-x-2 transition duration-200">
-        {icon}
-        <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
-          {title}
-        </div>
-        <div className="font-sans font-normal text-xs text-neutral-600 dark:text-neutral-300">
-          {description}
+      {href && (
+        <a 
+          href={href} 
+          className="absolute inset-0 z-10"
+          aria-label={title}
+          target="_blank" 
+        >
+        </a>
+      )}
+
+      <div className="relative z-20 flex flex-col justify-between h-full pointer-events-none">
+        {header}
+        
+        <div className="group-hover/bento:translate-x-2 transition duration-200">
+          {icon}
+          <div className="font-sans font-bold mb-2 mt-2">
+            {title}
+          </div>
+          <div className="font-sans font-normal text-xs">
+            {description}
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-// --- DEMO COMPONENT & DATA ---
 
-/**
- * This is the main component that showcases the Bento Grid.
- * The `items` array is where you define the content and layout for each grid item.
- * To add, remove, or change an item, you just need to modify this array.
- */
 export  function Bento() {
   return (
     <div className="bg-background min-h-screen w-full py-12 px-4">
@@ -96,7 +92,7 @@ export  function Bento() {
             description={item.description}
             header={item.header}
             icon={item.icon}
-            // The className is crucial for layout and styling
+            href={item.href}
             className={cn(
               item.className, 
               
@@ -108,7 +104,6 @@ export  function Bento() {
   );
 }
 
-// A placeholder component for the header of a grid item
 const Skeleton = ({ className }) => (
   <div
     className={cn(
@@ -118,14 +113,12 @@ const Skeleton = ({ className }) => (
   ></div>
 );
 
-// Another placeholder, this one specifically for images
 const ImageHeader = ({ src }) => (
     <div className="flex flex-1 w-full h-full min-h-[6rem] overflow-hidden">
         <img 
             src={src} 
             alt="Feature Image"
             className="object-cover w-full h-full"
-            // Fallback in case the image fails to load
             onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/27272a/ffffff?text=Image+Not+Found'; }}
         />
     </div>
@@ -137,29 +130,27 @@ const items = [
     {
       title: "Budgeting Made Easy",
       description: "Create and manage your budgets effortlessly. Stay on top of your financial goals.",
-      header: <ImageHeader src="https://placehold.co/600x400/7c3aed/ffffff?text=Budgeting" />,
+      header: <ImageHeader src="/sc2.webp" />,
       icon: <Wallet  />,
       // This item will span 1 column on medium screens and up
-      className: "md:col-span-1",
+      className: "md:row-span-2",
     },
   {
     title: "Simplified Expense Tracking",
     description: "Log your daily expenses in seconds with our intuitive interface.",
-    header: <ImageHeader src="https://placehold.co/600x400/27272a/7c3aed?text=Expenses" />,
+    header: <ImageHeader src="/sc2.webp" />,
     icon: <DollarSign  />,
     // This item will span 2 columns on medium screens and up
     className: "md:col-span-2",
   },
   {
-    title: "Join Eralog Today",
-    description: "Start your journey towards financial freedom.",
-    header: (
-        <div className="flex flex-1 w-full h-full min-h-[6rem]  bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
-            <h3 className="text-4xl font-bold text-primary-foreground tracking-tighter">Get Started</h3>
-        </div>
-    ),
-    icon: <ArrowRight />,
-    className: "md:row-span-2 bg-primary text-primary-foreground ",
+    title: "AI-Powered Insights",
+    description: "Let our AI analyze your spending and provide actionable insights.",
+    header: (<div className="flex flex-1 w-full h-full min-h-[6rem]  bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
+            <h3 className="text-4xl font-bold text-primary-foreground tracking-tighter">Text</h3>
+        </div>),
+    icon: <BarChart  />,
+    className: "md:col-span-1 bg-primary ",
   },
   {
     title: "AI-Powered Insights",
@@ -169,13 +160,16 @@ const items = [
     className: "md:col-span-1",
   },
  {
-    title: "AI-Powered Insights",
-    description: "Let our AI analyze your spending and provide actionable insights.",
-    header: (<div className="flex flex-1 w-full h-full min-h-[6rem]  bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
-            <h3 className="text-4xl font-bold text-primary-foreground tracking-tighter">Text</h3>
-        </div>),
-    icon: <BarChart  />,
-    className: "md:col-span-1 bg-primary text-primary-foreground ",
+    title: "Join Eralog Today",
+    description: "Start your journey towards financial freedom.",
+    header: (
+        <div className="flex flex-1 w-full h-full min-h-[6rem]  bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
+            <h3 className="text-4xl font-bold text-primary-foreground tracking-tighter">Get Started</h3>
+        </div>
+    ),
+    icon: <ArrowRight />,
+    className: "md:col-span-1 bg-primary",
+    href: "https://apps.apple.com"
   },
   {
     title: "All Your Accounts",
