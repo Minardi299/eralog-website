@@ -56,7 +56,7 @@ const BentoGridItem = ({
         // - `group/bento` for hover effects
         // - `transition` for smooth animations
         // - `shadow-input` is a custom shadow class you might define
-        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-none p-4 bg-card text-card-foreground border border-transparent justify-between flex flex-col space-y-4",
+        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-none p-4 bg-card text-card-foreground  justify-between flex flex-col space-y-4",
         className // Allows for overriding styles, like background colors or spanning multiple rows/cols
       )}
     >
@@ -99,8 +99,7 @@ export  function Bento() {
             // The className is crucial for layout and styling
             className={cn(
               item.className, 
-              // Add a subtle border to all items, unless they have their own border style
-              !item.className?.includes("border-none") && "border-border"
+              
             )}
           />
         ))}
@@ -113,7 +112,7 @@ export  function Bento() {
 const Skeleton = ({ className }) => (
   <div
     className={cn(
-      "flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-800 dark:to-neutral-900",
+      "flex flex-1 w-full h-full min-h-[6rem]  bg-gradient-to-br from-neutral-200 to-neutral-300 dark:from-neutral-800 dark:to-neutral-900",
       className
     )}
   ></div>
@@ -121,7 +120,7 @@ const Skeleton = ({ className }) => (
 
 // Another placeholder, this one specifically for images
 const ImageHeader = ({ src }) => (
-    <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl overflow-hidden">
+    <div className="flex flex-1 w-full h-full min-h-[6rem] overflow-hidden">
         <img 
             src={src} 
             alt="Feature Image"
@@ -139,7 +138,7 @@ const items = [
       title: "Budgeting Made Easy",
       description: "Create and manage your budgets effortlessly. Stay on top of your financial goals.",
       header: <ImageHeader src="https://placehold.co/600x400/7c3aed/ffffff?text=Budgeting" />,
-      icon: <Wallet className="h-4 w-4 text-neutral-500" />,
+      icon: <Wallet  />,
       // This item will span 1 column on medium screens and up
       className: "md:col-span-1",
     },
@@ -147,7 +146,7 @@ const items = [
     title: "Simplified Expense Tracking",
     description: "Log your daily expenses in seconds with our intuitive interface.",
     header: <ImageHeader src="https://placehold.co/600x400/27272a/7c3aed?text=Expenses" />,
-    icon: <DollarSign className="h-4 w-4 text-neutral-500" />,
+    icon: <DollarSign  />,
     // This item will span 2 columns on medium screens and up
     className: "md:col-span-2",
   },
@@ -155,38 +154,38 @@ const items = [
     title: "Join Eralog Today",
     description: "Start your journey towards financial freedom.",
     header: (
-        <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
+        <div className="flex flex-1 w-full h-full min-h-[6rem]  bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
             <h3 className="text-4xl font-bold text-primary-foreground tracking-tighter">Get Started</h3>
         </div>
     ),
-    icon: <ArrowRight className="h-4 w-4 text-primary-foreground/80" />,
-    className: "md:row-span-2 bg-primary text-primary-foreground border-none",
+    icon: <ArrowRight />,
+    className: "md:row-span-2 bg-primary text-primary-foreground ",
   },
   {
     title: "AI-Powered Insights",
     description: "Let our AI analyze your spending and provide actionable insights.",
     header: <Skeleton />,
-    icon: <BarChart className="h-4 w-4 text-neutral-500" />,
+    icon: <BarChart />,
     className: "md:col-span-1",
   },
  {
     title: "AI-Powered Insights",
     description: "Let our AI analyze your spending and provide actionable insights.",
-    header: (<div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
+    header: (<div className="flex flex-1 w-full h-full min-h-[6rem]  bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
             <h3 className="text-4xl font-bold text-primary-foreground tracking-tighter">Text</h3>
         </div>),
     icon: <BarChart  />,
-    className: "md:col-span-1 bg-primary text-primary-foreground border-none",
+    className: "md:col-span-1 bg-primary text-primary-foreground ",
   },
   {
     title: "All Your Accounts",
     description: "Connect bank accounts, credit cards, and more.",
     header: (
-      <div className="flex flex-1 w-full h-full min-h-[6rem] rounded-xl bg-accent items-center justify-center">
+      <div className="flex flex-1 w-full h-full min-h-[6rem] bg-accent items-center justify-center">
           <Package className="h-16 w-16 text-accent-foreground/70" />
       </div>
     ),
     icon: <Package className="h-4 w-4 text-accent-foreground" />,
-    className: "md:col-span-2 bg-accent text-accent-foreground border-none",
+    className: "md:col-span-2 bg-accent text-accent-foreground ",
   },
 ];

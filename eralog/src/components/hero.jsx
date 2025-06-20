@@ -1,7 +1,6 @@
 import { Iphone15Pro} from "@/components/magicui/iphone-15-pro";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { Boxes} from "@/components/background";
-import { cn } from "@/lib/utils";
 
 export function Hero(){
     const AppleLogo = (

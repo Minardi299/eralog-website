@@ -1,6 +1,5 @@
 import './App.css'
 import { ModeToggle } from '@/components/mode-toggle'
-import { Button } from "@/components/ui/button";
 import { Hero } from "@/components/hero";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
 import { Bento} from "@/components/bento"
@@ -27,16 +26,9 @@ function App() {
       <ScrollProgress /> 
       <Hero />
       
-       
-            <Button>Click me</Button>
       <Bento/>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p><p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+     
 
-            <ModeToggle />
       <Footer/>
 
     </>
