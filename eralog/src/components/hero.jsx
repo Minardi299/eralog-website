@@ -1,5 +1,7 @@
 import { Iphone15Pro} from "@/components/magicui/iphone-15-pro";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import { Boxes} from "@/components/background";
+import { cn } from "@/lib/utils";
 
 export function Hero(){
     const AppleLogo = (
@@ -30,15 +32,49 @@ export function Hero(){
     );
 
     return (
-        <section className="flex items-center justify-center min-h-screen p-4">
-      <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 w-full max-w-6xl">
+
+
+    // <div className="min-h-screen relative overflow-hidden flex flex-col justify-center rounded-lg">
+    //   <div className="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+
+    //   <Boxes />
+    // <div className="flex flex-col md:flex-row items-center gap-4 md:gap-16 w-full px-20 sm:px-6 lg:px-8 ">
         
+    //     <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6 z-20">
+    //        <h3 className="text-xl font-medium text-primary">Eralog</h3>
+    //        <h1 className=" tracking-tight">
+    //         Discover a smarter, simpler way to manage your expenses and finances.
+    //        </h1>
+          
+    //        <div className="flex flex-col sm:flex-row gap-4 mt-4">
+    //          <InteractiveHoverButton logo={AppleLogo}>
+    //            Download for iOS
+    //          </InteractiveHoverButton>
+    //          <InteractiveHoverButton logo={GooglePlayLogo}>
+    //            Download for Android
+    //          </InteractiveHoverButton>
+    //        </div>
+    //      </div>
+
+    //      <div className="z-20">
+    //        <Iphone15Pro src="./sc1.webp" />
+    //      </div>
+    //    </div>
+    // </div>
+    <div className="min-h-screen relative overflow-hidden flex flex-col items-center justify-center rounded-lg p-4">
+      <div className="absolute inset-0 w-full h-full z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+      <Boxes />
+
+     
+      <div className="w-full max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 z-20">
+
+        {/* Left Column: Text and Buttons */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6">
           <h3 className="text-xl font-medium text-primary">Eralog</h3>
-          <h1 className="  tracking-tight">
-            Discover a smarter, simpler way to manage your expenses and finances.
+          <h1 className=" font-bold tracking-tight">
+            A simpler way to manage your expenses and finances.
           </h1>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <InteractiveHoverButton logo={AppleLogo}>
               Download for iOS
@@ -49,10 +85,11 @@ export function Hero(){
           </div>
         </div>
 
+        {/* Right Column: iPhone Image */}
         <div className="flex-shrink-0">
           <Iphone15Pro src="./sc1.webp" />
         </div>
       </div>
-    </section>
+    </div>
     );
 }
