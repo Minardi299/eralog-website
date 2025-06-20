@@ -19,6 +19,15 @@ export function Footer(){
           />
           <p className="">Scan to download</p>
         </div>
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
+            <a href="#" className="hover:text-primary transition-colors">App Store</a>
+            <span className="text-xs">•</span>
+            <a href="#" className="hover:text-primary transition-colors">Contact</a>
+            <span className="text-xs">•</span>
+            <a href="#" className="hover:text-primary transition-colors">X (FKA Twitter)</a>
+            <span className="text-xs">•</span>
+            <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+        </div>
       </div>
     </footer>
     );
