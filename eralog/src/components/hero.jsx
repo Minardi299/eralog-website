@@ -30,12 +30,29 @@ export function Hero(){
     );
 
     return (
-        <>
-            <Iphone15Pro src="./sc1.webp"/>
-            <InteractiveHoverButton logo={AppleLogo}>Download for IOS</InteractiveHoverButton>
-                        <InteractiveHoverButton logo={GooglePlayLogo}>Download for Android</InteractiveHoverButton>
+        <section className="flex items-center justify-center min-h-screen p-4">
+      <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 w-full max-w-6xl">
+        
+        <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6">
+          <h3 className="text-xl font-medium text-gray-600">Eralog</h3>
+          <h1 className="  tracking-tight">
+            The expense tracker to keep you on track
+          </h1>
+          
+          <div className="flex flex-col sm:flex-row gap-4 mt-4">
+            <InteractiveHoverButton logo={AppleLogo}>
+              Download for iOS
+            </InteractiveHoverButton>
+            <InteractiveHoverButton logo={GooglePlayLogo}>
+              Download for Android
+            </InteractiveHoverButton>
+          </div>
+        </div>
 
-
-        </>
+        <div className="flex-shrink-0">
+          <Iphone15Pro src="./sc1.webp" />
+        </div>
+      </div>
+    </section>
     );
 }
