@@ -34,9 +34,9 @@ export function Hero(){
       <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16 w-full max-w-6xl">
         
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6">
-          <h3 className="text-xl font-medium text-gray-600">Eralog</h3>
+          <h3 className="text-xl font-medium text-primary">Eralog</h3>
           <h1 className="  tracking-tight">
-            The expense tracker to keep you on track
+            Discover a smarter, simpler way to manage your expenses and finances.
           </h1>
           
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
