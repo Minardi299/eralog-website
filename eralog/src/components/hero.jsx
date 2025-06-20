@@ -1,6 +1,7 @@
 import { Iphone15Pro} from "@/components/magicui/iphone-15-pro";
 import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 import { Boxes} from "@/components/background";
+import logo from "/logo.svg";
 
 export function Hero(){
     const AppleLogo = (
@@ -67,9 +68,12 @@ export function Hero(){
      
       <div className="w-full max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16 z-20">
 
-        {/* Left Column: Text and Buttons */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6">
+          <div className="flex flex-row items-center">
+
+          <img src={logo} alt="" />
           <h3 className="text-xl font-medium text-primary">Eralog</h3>
+          </div>
           <h1 className=" font-bold tracking-tight">
             A simpler way to manage your expenses and finances.
           </h1>
@@ -84,7 +88,6 @@ export function Hero(){
           </div>
         </div>
 
-        {/* Right Column: iPhone Image */}
         <div className="flex-shrink-0">
           <Iphone15Pro src="./sc1.webp" />
         </div>
