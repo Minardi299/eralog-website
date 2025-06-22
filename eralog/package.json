@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy":"scp -r dist/* montcalm@192.168.1.112:/var/www/eralog",
     "lint": "eslint .",
     "preview": "vite preview"
   },

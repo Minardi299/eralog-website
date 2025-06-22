@@ -1,5 +1,5 @@
 
-import { ArrowRight, BarChart, DollarSign, Package, TrendingUp, Wallet } from 'lucide-react';
+import { ArrowRight, BarChart, DollarSign, UserLock, Mic, Wallet ,FileVolume,ShieldCheck} from 'lucide-react';
 // --- UTILITY FUNCTION (from shadcn/ui) ---
 // This is a helper function to merge Tailwind CSS classes conditionally.
 // You would typically import this from `lib/utils` in a shadcn project.
@@ -48,7 +48,7 @@ const BentoGridItem = ({
   return (
     <div
       className={cn(
-        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-none p-4 bg-card text-card-foreground justify-between flex flex-col space-y-4 relative",
+        "row-span-1 group/bento hover:shadow-xl transition duration-200 shadow-none p-4 bg-card text-card-foreground justify-between flex flex-col space-y-4 relative",
         className
       )}
     >
@@ -117,19 +117,17 @@ const ImageHeader = ({ src }) => (
     <div className="flex flex-1 w-full h-full min-h-[6rem] overflow-hidden">
         <img 
             src={src} 
+            loading="lazy"
             alt="Feature Image"
             className="object-cover w-full h-full"
             onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/27272a/ffffff?text=Image+Not+Found'; }}
         />
     </div>
 );
-
-
-
 const items = [
     {
       title: "Budgeting Made Easy",
-      description: "Create and manage your budgets effortlessly. Stay on top of your financial goals.",
+      description: "Snap and upload, manage your budgets effortlessly. Stay on top of your financial goals.",
       header: <ImageHeader src="/sc2.webp" />,
       icon: <Wallet  />,
       // This item will span 1 column on medium screens and up
@@ -138,25 +136,26 @@ const items = [
   {
     title: "Simplified Expense Tracking",
     description: "Log your daily expenses in seconds with our intuitive interface.",
-    header: <ImageHeader src="/sc2.webp" />,
+    header: <ImageHeader src="/sc3.webp"  />,
     icon: <DollarSign  />,
     // This item will span 2 columns on medium screens and up
     className: "md:col-span-2",
   },
   {
     title: "AI-Powered Insights",
-    description: "Let our AI analyze your spending and provide actionable insights.",
-    header: (<div className="flex flex-1 w-full h-full min-h-[6rem]  bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
-            <h3 className="text-4xl font-bold text-primary-foreground tracking-tighter">Text</h3>
-        </div>),
+    description: "No cloud, no delay. Your iPhone processes documents and extracts expense data on the spot.",
+    header: <ImageHeader src="/ai2.svg" />,
     icon: <BarChart  />,
     className: "md:col-span-1 bg-primary ",
   },
   {
-    title: "AI-Powered Insights",
-    description: "Let our AI analyze your spending and provide actionable insights.",
-    header: <Skeleton />,
-    icon: <BarChart />,
+    title: "Your Data, Any Format",
+    description: "Log anything, your way. Speak it, scan it, upload it and we'll handle it.",
+    header: (
+      <div className="flex flex-1 items-center justify-center">
+          <FileVolume className="h-16 w-16 text-accent-foreground/70" />
+      </div>
+    ),    icon: <Mic />,
     className: "md:col-span-1",
   },
  {
@@ -164,7 +163,7 @@ const items = [
     description: "Start your journey towards financial freedom.",
     header: (
         <div className="flex flex-1 w-full h-full min-h-[6rem]  bg-gradient-to-br from-primary via-primary/80 to-primary/60 items-center justify-center">
-            <h3 className="text-4xl font-bold text-primary-foreground tracking-tighter">Get Started</h3>
+            <h3 className=" font-bold  tracking-tighter">Get Started</h3>
         </div>
     ),
     icon: <ArrowRight />,
@@ -172,14 +171,14 @@ const items = [
     href: "https://apps.apple.com"
   },
   {
-    title: "All Your Accounts",
-    description: "Connect bank accounts, credit cards, and more.",
+    title: "Private & Secure",
+    description: "We don't share your data. Everything is encrypted and secure.",
     header: (
       <div className="flex flex-1 w-full h-full min-h-[6rem] bg-accent items-center justify-center">
-          <Package className="h-16 w-16 text-accent-foreground/70" />
+          <ShieldCheck className="h-16 w-16 text-accent-foreground/70" />
       </div>
     ),
-    icon: <Package className="h-4 w-4 text-accent-foreground" />,
+    icon: <UserLock  />,
     className: "md:col-span-2 bg-accent text-accent-foreground ",
   },
 ];
