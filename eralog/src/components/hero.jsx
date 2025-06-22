@@ -79,7 +79,7 @@ export function Hero(){
           </h1>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
-            <InteractiveHoverButton logo={AppleLogo}>
+            <InteractiveHoverButton onClick={()=> { console.log("hello")}} logo={AppleLogo}>
               Download for iOS
             </InteractiveHoverButton>
             <InteractiveHoverButton logo={GooglePlayLogo}>
