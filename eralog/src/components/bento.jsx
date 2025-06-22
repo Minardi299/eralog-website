@@ -128,7 +128,7 @@ const items = [
     {
       title: "Budgeting Made Easy",
       description: "Snap and upload, manage your budgets effortlessly. Stay on top of your financial goals.",
-      header: <ImageHeader src="/sc2.webp" />,
+      header: <ImageHeader src="/sc4.webp" />,
       icon: <Wallet  />,
       // This item will span 1 column on medium screens and up
       className: "md:row-span-2",
